@@ -1,6 +1,6 @@
 //* Array Docs von MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-const item1: string = "Tomatensuppe"
+// const item1: string = "Tomatensuppe"
 
 // # ARRAYS
 
@@ -40,6 +40,7 @@ console.log(einkaufsListe.pop())
 
 //* Oder in einer anderen Variable ablegen:
 const lastItem = einkaufsListe.pop()
+console.log(lastItem)
 
 // ~ .shift
 
