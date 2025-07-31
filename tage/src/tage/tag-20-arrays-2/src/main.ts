@@ -67,11 +67,11 @@ if (beispielArray.includes("blaubeeren")) {
 // .find gibt uns das erste Element des Arrays zurück, bei dem die übergebene Callbackfunktion "true" ergibt.
 
 // Wir wollen ein Element mit mindestens 12 Zeichen finden
-const findResult = beispielArray.find(function (value, index) {
+const findResult = beispielArray.find(function (value) {
   return value.length >= 12
 })
 
-const findResult2 = beispielArray.find(function (value, index) {
+const findResult2 = beispielArray.find(function (value) {
   return value.toLowerCase().includes("beere")
 })
 
@@ -82,7 +82,7 @@ console.log({ findResult2 })
 // ~ .findIndex
 // => Das gleiche, gibt aber den Index zurück.
 
-const findIndexResult = beispielArray.findIndex(function (value, index) {
+const findIndexResult = beispielArray.findIndex(function (value) {
   return value.toLowerCase().includes("beere")
 })
 
@@ -90,7 +90,7 @@ console.log({ findIndexResult })
 
 // ~ .filter
 
-const filteredArray = beispielArray.filter(function (value, index) {
+const filteredArray = beispielArray.filter(function (value) {
   return value.toLowerCase().includes("beere")
 })
 
