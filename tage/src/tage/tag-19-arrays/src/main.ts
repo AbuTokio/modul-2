@@ -1,3 +1,5 @@
+import "./style.css"
+
 //* Array Docs von MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 // const item1: string = "Tomatensuppe"
@@ -161,6 +163,15 @@ console.log(obstKopie)
 // Wir können forEach auf jedem Array aufrufen und ihm eine Funktion als Argument übergeben.
 // Diese Funktion wird dann für jedes Element im Array aufgerufen.
 
-combinedArray.forEach(function (element, index) {
-  console.log({ element, index })
-})
+// const meinCallbackFuerForEach = function (element, index) {
+//   console.log({ element, index })
+// }
+
+// combinedArray.forEach = meinCallbackFuerForEach
+
+// combinedArray.forEach(function (element, index) {
+//   console.log({ element, index })
+// })
+
+// const meinListener = function(){}
+// document.addEventListener("click", meinListener)
