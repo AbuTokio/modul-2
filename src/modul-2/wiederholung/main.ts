@@ -8,11 +8,11 @@ import IUser from "./interfaces/IUser"
 
 // console.log(userListe)
 
-const ichSuchNachKeys = Object.keys(userListe)
+// const ichSuchNachKeys = Object.keys(userListe)
 
 // forEach() => um irgendwas sehen zu können brauchen wir console.log() und kein return, da forEach() nichts returned und kein neues Array erstellt
 // map() => um irgendwas zsehen zu können brauchen wir unbedingt return und console.log() ist optional
-const allKeysInObj = userListe.map((user: IUser) => Object.keys(user))
+// const allKeysInObj = userListe.map((user: IUser) => Object.keys(user))
 // console.log(allKeysInObj)
 
 // % Object.keys() Object.values() Object.entries()
@@ -61,7 +61,7 @@ enumToArray.forEach(([key, value]: string[]) => {
 // % static
 
 const car1 = new Car("Tesla", "S")
-const car2 = new Car("Porsche", "Panamera")
+// const car2 = new Car("Porsche", "Panamera")
 
 console.log(car1)
 Car.howManyCars()
