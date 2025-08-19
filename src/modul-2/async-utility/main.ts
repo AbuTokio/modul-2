@@ -81,7 +81,7 @@ async function doTasks(name: string, duration: number): Promise<string> {
 
 doTasks("John", 20000).then
 
-async function runParallelTasks() {
+async function runParallelTasks(): Promise<void> {
   const tasks = [doTasks("Joe", 1000), doTasks("Alice", 2000), doTasks("Andre", 4000)]
 
   const taskArray = await Promise.all(tasks)
