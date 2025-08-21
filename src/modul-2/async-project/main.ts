@@ -1,4 +1,5 @@
 import "../../style.css"
+import "./style.css"
 import type { Character, Characters } from "./interfaces/Character"
 import type { Episode, Episodes } from "./interfaces/Episode"
 import type { Location, Locations } from "./interfaces/Location"
@@ -15,7 +16,33 @@ const elements = {
   character: document.getElementById("api-character") as HTMLAnchorElement,
   location: document.getElementById("api-location") as HTMLAnchorElement,
   episode: document.getElementById("api-episode") as HTMLAnchorElement,
+  pages: {
+    last: document.getElementById("last-page") as HTMLButtonElement,
+    next: document.getElementById("next-page") as HTMLButtonElement,
+  },
 }
+
+let currentPageUrl: string = CHARACTER_URL
+
+elements.pages.next.addEventListener("click", async () => {
+  elements.output.innerHTML = ""
+  try {
+    const resp = await fetch(currentPageUrl)
+    const { info, results } = (await resp.json()) as Characters
+
+    results.forEach(async (result: Character) => {
+      const characterContainer = document.createElement("div") as HTMLDivElement
+      characterContainer.innerHTML = await displayCharacter(result)
+      elements.output.appendChild(characterContainer)
+    })
+
+    if (info.next) {
+      currentPageUrl = info.next
+    }
+  } catch (error) {
+    console.error(error)
+  }
+})
 
 elements.character.addEventListener("click", async () => {
   elements.output.innerHTML = ""
@@ -29,9 +56,9 @@ elements.character.addEventListener("click", async () => {
       // % V2
       const { results } = (await resp.json()) as Characters
 
-      results.forEach((result: Character) => {
+      results.forEach(async (result: Character) => {
         const characterContainer = document.createElement("div") as HTMLDivElement
-        characterContainer.innerHTML = displayCharacter(result)
+        characterContainer.innerHTML = await displayCharacter(result)
         elements.output.appendChild(characterContainer)
       })
     }
@@ -40,10 +67,10 @@ elements.character.addEventListener("click", async () => {
   }
 })
 
-function displayCharacter(character: Character): string {
+async function displayCharacter(character: Character): Promise<string> {
   const resultAsString = `
-  <div>
-    <p>Name: ${character.name}</p>
+  <div class="flex flex-col justify-between align-sub">
+    <p class="text-red-600 font-bold">Name: ${character.name}</p>
     <p>Status: ${character.status}</p>
     <p>Gender: ${character.gender}</p>
     <p>Origin: ${character.origin?.name}</p>
